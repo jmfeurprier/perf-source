@@ -32,7 +32,6 @@ class LocalFileSource implements Source
      * Constructor.
      *
      * @param string $path
-     * @return void
      */
     private function __construct($path)
     {

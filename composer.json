@@ -17,7 +17,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"perf\\Source\\" : "lib/perf/Source/"
+			"perf\\Source\\" : "src/perf/Source/"
 		}
 	}
 }

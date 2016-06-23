@@ -32,13 +32,12 @@ class StringSource implements Source
      * Constructor.
      *
      * @param string $string
-     * @return void
      * @throws \InvalidArgumentException
      */
     private function __construct($string)
     {
         if (!is_string($string)) {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('Provided argument is not a string.');
         }
 
         $this->string = $string;
