@@ -53,4 +53,15 @@ class StringSource implements Source
     {
         return $this->string;
     }
+
+    /**
+     *
+     *
+     * @return void
+     * @throws SourceException
+     */
+    public function send()
+    {
+        echo $this->string;
+    }
 }

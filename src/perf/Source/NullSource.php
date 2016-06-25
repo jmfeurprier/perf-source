@@ -36,4 +36,14 @@ class NullSource implements Source
     {
         return '';
     }
+
+    /**
+     *
+     *
+     * @return void
+     * @throws SourceException
+     */
+    public function send()
+    {
+    }
 }

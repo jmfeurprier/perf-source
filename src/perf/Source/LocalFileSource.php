@@ -53,9 +53,22 @@ class LocalFileSource implements Source
         $content = file_get_contents($this->path);
 
         if (false === $content) {
-            throw new SourceException("Failed to get file content at '{$this->path}'.");
+            throw new SourceException("Failed to read file content at '{$this->path}'.");
         }
 
         return $content;
+    }
+
+    /**
+     *
+     *
+     * @return void
+     * @throws SourceException
+     */
+    public function send()
+    {
+        if (false === readfile($this->path)) {
+            throw new SourceException("Failed to read file content at '{$this->path}'.");
+        }
     }
 }
