@@ -43,10 +43,7 @@ class LocalFileSource implements Source
     }
 
     /**
-     *
-     *
-     * @return string
-     * @throws SourceException
+     * {@inheritdoc}
      */
     public function getContent()
     {
@@ -60,10 +57,21 @@ class LocalFileSource implements Source
     }
 
     /**
-     *
-     *
-     * @return void
-     * @throws SourceException
+     * {@inheritdoc}
+     */
+    public function getSize()
+    {
+        $size = filesize($this->path);
+
+        if (false === $size) {
+            throw new SourceException("Failed to read file size at '{$this->path}'.");
+        }
+
+        return $size;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function send()
     {

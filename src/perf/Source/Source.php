@@ -20,6 +20,14 @@ interface Source
     /**
      *
      *
+     * @return int
+     * @throws SourceException
+     */
+    public function getSize();
+
+    /**
+     *
+     *
      * @return void
      * @throws SourceException
      */

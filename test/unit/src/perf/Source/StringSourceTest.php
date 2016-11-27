@@ -19,4 +19,16 @@ class StringSourceTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame($string, $source->getContent());
     }
+
+    /**
+     *
+     */
+    public function testGetSize()
+    {
+        $string = 'foo';
+
+        $source = StringSource::create($string);
+
+        $this->assertSame(3, $source->getSize());
+    }
 }

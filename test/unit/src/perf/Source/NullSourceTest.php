@@ -17,4 +17,14 @@ class NullSourceTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame('', $source->getContent());
     }
+
+    /**
+     *
+     */
+    public function testGetSize()
+    {
+        $source = NullSource::create();
+
+        $this->assertSame(0, $source->getSize());
+    }
 }

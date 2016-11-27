@@ -20,17 +20,7 @@ class NullSource implements Source
     }
 
     /**
-     * Constructor.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     *
-     *
-     * @return string
-     * @throws SourceException
+     * {@inheritdoc}
      */
     public function getContent()
     {
@@ -38,10 +28,15 @@ class NullSource implements Source
     }
 
     /**
-     *
-     *
-     * @return void
-     * @throws SourceException
+     * {@inheritdoc}
+     */
+    public function getSize()
+    {
+        return 0;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function send()
     {

@@ -44,10 +44,7 @@ class StringSource implements Source
     }
 
     /**
-     *
-     *
-     * @return string
-     * @throws SourceException
+     * {@inheritdoc}
      */
     public function getContent()
     {
@@ -55,10 +52,15 @@ class StringSource implements Source
     }
 
     /**
-     *
-     *
-     * @return void
-     * @throws SourceException
+     * {@inheritdoc}
+     */
+    public function getSize()
+    {
+        return strlen($this->string);
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function send()
     {
