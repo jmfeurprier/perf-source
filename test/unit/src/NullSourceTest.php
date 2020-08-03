@@ -2,15 +2,10 @@
 
 namespace perf\Source;
 
-/**
- *
- */
-class NullSourceTest extends \PHPUnit_Framework_TestCase
-{
+use PHPUnit\Framework\TestCase;
 
-    /**
-     *
-     */
+class NullSourceTest extends TestCase
+{
     public function testGetContent()
     {
         $source = NullSource::create();
@@ -18,9 +13,6 @@ class NullSourceTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('', $source->getContent());
     }
 
-    /**
-     *
-     */
     public function testGetSize()
     {
         $source = NullSource::create();

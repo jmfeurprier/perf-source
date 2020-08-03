@@ -2,15 +2,10 @@
 
 namespace perf\Source;
 
-/**
- *
- */
-class StringSourceTest extends \PHPUnit_Framework_TestCase
-{
+use PHPUnit\Framework\TestCase;
 
-    /**
-     *
-     */
+class StringSourceTest extends TestCase
+{
     public function testGetContent()
     {
         $string = 'foo';
@@ -20,9 +15,6 @@ class StringSourceTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($string, $source->getContent());
     }
 
-    /**
-     *
-     */
     public function testGetSize()
     {
         $string = 'foo';

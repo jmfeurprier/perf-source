@@ -2,34 +2,28 @@
 
 namespace perf\Source;
 
-/**
- *
- *
- */
-interface Source
+use perf\Source\Exception\SourceException;
+
+interface SourceInterface
 {
-
     /**
-     *
-     *
      * @return string
+     *
      * @throws SourceException
      */
-    public function getContent();
+    public function getContent(): string;
 
     /**
-     *
-     *
      * @return int
+     *
      * @throws SourceException
      */
-    public function getSize();
+    public function getSize(): int;
 
     /**
-     *
-     *
      * @return void
+     *
      * @throws SourceException
      */
-    public function send();
+    public function send(): void;
 }

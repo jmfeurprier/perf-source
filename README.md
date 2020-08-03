@@ -7,45 +7,35 @@ Source package allows to abstract data sources.
 
 Source has no dependencies on other libraries.
 
-Install it with [Composer](http://getcomposer.org/):
+Install it with [Composer](https://getcomposer.org/):
 
-```json
-{
-	"require":
-	{
-		"perf/source"  : "~1.0"
-	}
-}
+```shell script
+composer require perf/source
 ```
 
 ## Usage
 
-### Local file source
-
 ```php
 <?php
 
-$path = '/foo/bar/settings.ini';
+use perf\Source\LocalFileSource;
+use perf\Source\NullSource;
+use perf\Source\SourceInterface;
+use perf\Source\StringSource;
 
-$source = \perf\Source\LocalFileSource::create($path);
+$sources = [
+    new LocalFileSource('/foo/bar/baz.txt'),
+    new NullSource(),
+    new StringSource('Foo bar baz.'),
+];
 
-function print_content(\perf\Source\Source $source)
+function show_source_details(SourceInterface $source)
 {
-	echo $source->getContent();
+    echo "Size: {$source->getSize()}", PHP_EOL;
+    echo "Content: {$source->getContent()}", PHP_EOL;
 }
-```
 
-### String source
-
-```php
-<?php
-
-$string = 'foo = bar';
-
-$source = \perf\Source\StringSource::create($string);
-
-function print_content(\perf\Source\Source $source)
-{
-	echo $source->getContent();
+foreach ($sources as $source) {
+    show_source_details($source);
 }
 ```

@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         bootstrap="./test/unit/bootstrap.php">
+<phpunit
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    stopOnFailure="false"
+>
 
     <testsuites>
-        <testsuite>
-          <directory>./test/unit/src</directory>
+        <testsuite name="default">
+          <directory>./test/unit</directory>
         </testsuite>
     </testsuites>
 

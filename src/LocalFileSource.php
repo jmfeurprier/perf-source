@@ -2,50 +2,26 @@
 
 namespace perf\Source;
 
-/**
- *
- *
- */
-class LocalFileSource implements Source
+use perf\Source\Exception\SourceException;
+
+class LocalFileSource implements SourceInterface
 {
+    private string $path;
 
-    /**
-     *
-     *
-     * @var string
-     */
-    private $path;
-
-    /**
-     * Static constructor.
-     *
-     * @param string $path
-     * @return LocalFileSource
-     * @throws \InvalidArgumentException
-     */
-    public static function create($path)
+    public static function create(string $path): self
     {
         return new self($path);
     }
 
-    /**
-     * Constructor.
-     *
-     * @param string $path
-     */
-    private function __construct($path)
+    public function __construct(string $path)
     {
-        if (!is_string($path)) {
-            throw new \InvalidArgumentException();
-        }
-
         $this->path = $path;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getContent()
+    public function getContent(): string
     {
         $content = file_get_contents($this->path);
 
@@ -59,7 +35,7 @@ class LocalFileSource implements Source
     /**
      * {@inheritdoc}
      */
-    public function getSize()
+    public function getSize(): int
     {
         $size = filesize($this->path);
 
@@ -73,7 +49,7 @@ class LocalFileSource implements Source
     /**
      * {@inheritdoc}
      */
-    public function send()
+    public function send(): void
     {
         if (false === readfile($this->path)) {
             throw new SourceException("Failed to read file content at '{$this->path}'.");

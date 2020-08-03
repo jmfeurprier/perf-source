@@ -2,19 +2,9 @@
 
 namespace perf\Source;
 
-/**
- *
- *
- */
-class NullSource implements Source
+class NullSource implements SourceInterface
 {
-
-    /**
-     * Static constructor.
-     *
-     * @return StringSource
-     */
-    public static function create()
+    public static function create(): self
     {
         return new self();
     }
@@ -22,7 +12,7 @@ class NullSource implements Source
     /**
      * {@inheritdoc}
      */
-    public function getContent()
+    public function getContent(): string
     {
         return '';
     }
@@ -30,7 +20,7 @@ class NullSource implements Source
     /**
      * {@inheritdoc}
      */
-    public function getSize()
+    public function getSize(): int
     {
         return 0;
     }
@@ -38,7 +28,7 @@ class NullSource implements Source
     /**
      * {@inheritdoc}
      */
-    public function send()
+    public function send(): void
     {
     }
 }
